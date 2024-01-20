@@ -9,3 +9,5 @@ s
 Csrc/main/java/com/naja/springblog/controller/CommentController.java,3\b\3b02adb5b0841e03438bc0734ab69d2e6cf2fa4f
 n
 >src/main/java/com/naja/springblog/kafka/JsonKafkaProducer.java,9\2\920b903c38d7da10aa98b17e6d15434b9ef0591a
+d
+4src/main/java/com/naja/springblog/model/Comment.java,7\a\7a29f78f6266884b173ed0d5273b8ee426e16a8b

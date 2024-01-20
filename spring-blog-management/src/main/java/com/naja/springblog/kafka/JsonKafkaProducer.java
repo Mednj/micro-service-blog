@@ -1,5 +1,6 @@
-package com.naja.analyticsmicroservice.kafka;
+package com.naja.springblog.kafka;
 
+import com.naja.springblog.model.Comment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -13,20 +14,22 @@ public class JsonKafkaProducer
 {
     //this is the JsonKafkaProducer responsible for sending the message to the JsonMessageFormat2 topic
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaProducer.class);
+    private final KafkaTemplate<String, Comment> kafkaTemplate;
 
-    // the message will be sent as a FinancialMessageEntity object
-    private KafkaTemplate<String, FinancialMessageEntity> kafkaTemplate;
-
-    public JsonKafkaProducer(KafkaTemplate<String, FinancialMessageEntity> kafkaTemplate) {
+    public JsonKafkaProducer(KafkaTemplate<String, Comment> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendMessage(FinancialMessageEntity data){
-        LOGGER.info("Producing message: {}",data);
-        Message<FinancialMessageEntity> message = MessageBuilder.withPayload(data).setHeader(
-                KafkaHeaders.TOPIC, "JsonMessageFormat2"
-        ).build();
+    public void sendMessage(Comment comment) {
+        LOGGER.info("Producing comment message: {}", comment);
+
+        Message<Comment> message = MessageBuilder
+                .withPayload(comment)
+                .setHeader(KafkaHeaders.TOPIC, "commentEventTopic")
+                .build();
 
         kafkaTemplate.send(message);
     }
+
+
 }

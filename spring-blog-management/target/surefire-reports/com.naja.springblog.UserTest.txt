@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.naja.springblog.UserTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.252 s - in com.naja.springblog.UserTest

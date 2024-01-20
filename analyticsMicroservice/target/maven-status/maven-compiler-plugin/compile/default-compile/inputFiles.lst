@@ -1,1 +1,4 @@
-C:\Users\Mohamed\Downloads\blogProjectLast\fullstack-spring-boot-and-angular-blog\analyticsMicroservice\src\main\java\com\naja\analyticsmicroservice\AnalyticsMicroserviceApplication.java
+C:\Users\Mohamed\Downloads\microservice-app\analyticsMicroservice\src\main\java\com\naja\analyticsmicroservice\dependency\Comment.java
+C:\Users\Mohamed\Downloads\microservice-app\analyticsMicroservice\src\main\java\com\naja\analyticsmicroservice\configuration\KafkaTopicConfig.java
+C:\Users\Mohamed\Downloads\microservice-app\analyticsMicroservice\src\main\java\com\naja\analyticsmicroservice\kafka\JsonKafkaConsumer.java
+C:\Users\Mohamed\Downloads\microservice-app\analyticsMicroservice\src\main\java\com\naja\analyticsmicroservice\AnalyticsMicroserviceApplication.java
