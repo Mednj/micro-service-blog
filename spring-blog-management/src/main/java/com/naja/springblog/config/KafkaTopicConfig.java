@@ -8,7 +8,6 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
 
-
     // This is the topic that the orchestrator will send messages to for Format validation
     @Bean
     public NewTopic messageFormatTopic(){
