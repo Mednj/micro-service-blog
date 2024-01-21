@@ -94,8 +94,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
             .antMatchers(HttpMethod.GET,"/api/user/**","/api/post/**","/api/tag/**","/api/category/**","/api/comment/**")
                 .permitAll()
+               //allow requests from actuator
+            .antMatchers("/actuator/**")
+                .permitAll()
             .anyRequest()
                 .authenticated();
+
+
         
         http.addFilterBefore(jwtAuthenticationFilter(),UsernamePasswordAuthenticationFilter.class);
     }

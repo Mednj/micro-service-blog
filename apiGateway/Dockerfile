@@ -1,5 +1,5 @@
 # Use a base image with Java and a minimal OS
-FROM openjdk:11-jre-slim
+FROM openjdk:17
 
 # Set the working directory in the container
 WORKDIR /app

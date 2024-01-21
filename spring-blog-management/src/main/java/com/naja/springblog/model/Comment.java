@@ -56,6 +56,7 @@ public class Comment extends AuditEntity {
     @JsonManagedReference
     @OrderBy("createdAt ASC")
     private Set<Comment> comments = new HashSet<>();
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")

@@ -12,6 +12,8 @@ import com.naja.springblog.security.CurrentUser;
 import com.naja.springblog.security.UserPrincipal;
 import com.naja.springblog.service.CommentService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.access.annotation.Secured;
@@ -32,6 +34,8 @@ public class CommentController {
 
     private final CommentService commentService;
     private final JsonKafkaProducer jsonKafkaProducer;  // Inject the JsonKafkaProducer
+    // inject logger
+    private static final Logger LOGGER = LoggerFactory.getLogger(CommentController.class);
 
     public CommentController(CommentService commentService, JsonKafkaProducer jsonKafkaProducer) {
         this.commentService = commentService;
@@ -58,6 +62,8 @@ public class CommentController {
         @RequestBody @Valid CommentRequest commentRequest, @CurrentUser UserPrincipal currentUser) {       
         commentService.addCommentToParentId(postId,commentId, commentRequest, currentUser);
         jsonKafkaProducer.sendMessage(commentService.save(postId,commentRequest));
+        // log
+        LOGGER.info("Sub Comment created successfully");
         return ResponseEntity.ok().body(new SuccessResponse("Comment Created Successfully"));
     }
 

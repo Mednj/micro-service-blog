@@ -1,4 +1,4 @@
-package com.naja.analyticsmicroservice.configuration;
+package com.naja.springblog.config;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +12,8 @@ public class KafkaTopicConfig {
     @Bean
     public NewTopic messageFormatTopic(){
         return TopicBuilder.name("commentEventTopic")
+                .partitions(1)
+                .replicas(1)
                 .build();
     }
 

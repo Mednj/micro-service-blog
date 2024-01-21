@@ -22,7 +22,6 @@ public class JsonKafkaProducer
 
     public void sendMessage(Comment comment) {
         LOGGER.info("Producing comment message: {}", comment);
-
         Message<Comment> message = MessageBuilder
                 .withPayload(comment)
                 .setHeader(KafkaHeaders.TOPIC, "commentEventTopic")

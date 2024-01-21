@@ -1,5 +1,4 @@
 package com.naja.analyticsmicroservice.kafka;
-
 import com.naja.analyticsmicroservice.dependency.Comment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +11,7 @@ public class JsonKafkaConsumer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaConsumer.class);
 
-    @KafkaListener(topics = "CommentTopic", groupId = "comment-group")
+    @KafkaListener(topics = "commentEventTopic", groupId = "comment-group")
     public void consumeComment(Comment comment) {
         LOGGER.info("Consumed comment message: {}", comment);
 

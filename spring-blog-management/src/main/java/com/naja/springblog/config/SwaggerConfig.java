@@ -3,7 +3,6 @@ package com.naja.springblog.config;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
 import com.naja.springblog.security.UserPrincipal;
 
 import org.springframework.context.annotation.Bean;
@@ -30,10 +29,10 @@ public class SwaggerConfig  {
     @Bean
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("com.github.braians.springblog.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.naja.springblog.controller"))
                 .paths(PathSelectors.any()).build().apiInfo(apiInfo()).forCodeGeneration(true)
                 .securitySchemes(Arrays
-                        .asList(new ApiKey("Authorization", AUTHORIZATION_HEADER, SecuritySchemeIn.HEADER.name())))
+                        .asList(new ApiKey(AUTHORIZATION_HEADER, AUTHORIZATION_HEADER, SecuritySchemeIn.HEADER.name())))
                 .securityContexts(Arrays.asList(securityContext())).ignoredParameterTypes(UserPrincipal.class);
     }
 
@@ -51,8 +50,9 @@ public class SwaggerConfig  {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfo("Spring Blog", "Rest Api from Spring Blog", "0.0.1", "Term of service",
-                new Contact("Braian Silva", "https://github.com/BraianS", "braiannogueiradasilva@gmail.com"),
-                "MIT LICENSE", "https://github.com/BraianS/fullstack-spring-boot-and-angular/blob/master/LICENSE.md", Collections.emptyList());
-    }
+        return new ApiInfo("Spring Blog API", "Spring Blog API", "1.0", "Terms of service",
+                new Contact("naja  Mohamed", "www.naja.com", ""), "License of API", "API license URL"
+                , Collections.emptyList());
+
+}
 }
